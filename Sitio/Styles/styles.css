@@ -1,0 +1,710 @@
+/* ----------------------------- NAVBAR ----------------------------- */
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.lead { font-size: 1.5rem; font-weight: 300; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/*--====== Sidebar ======--*/
+.logo_sidebar{
+  background-color: #FEFEFE;
+  width: 100%;
+  height: 5rem;
+
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999;
+
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.36);
+}
+.logo_sidebar img{
+  height: 4rem;
+}
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    max-width: 350px;
+    width: 80%;
+    height: 100vh;
+    padding: 2rem;
+    background-color:#03426b;
+    box-shadow: 0 10px 20px -4px #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: opacity 0.3s ease, visibility 0.2s ease, transform 0.3s ease;
+    font-weight: 600;
+  }
+#sidebar a{
+  width: 90%;
+}
+#sidebar img{
+  width: 85%;
+  margin-left: 3.5rem;
+}
+
+/* when the sidebar has 'show' class */
+#sidebar.show {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.sidebar_content {
+  margin-top: 1rem;
+    padding: 1.5rem 0;
+    pointer-events: none;
+    /* so that the Sidebar does not get closed while clicking on sidebar_content */
+}
+
+.sidebar_content a {
+    pointer-events: all;
+    /* so that all the <a> inside sidebar_content are clickable */
+}
+
+.sidebar_body {
+    border-top: 1px dashed var(--text-color);
+    border-bottom: 1px dashed var(--text-color);
+}
+
+.side_navlinks ul {
+    display: grid;
+    gap: 3rem;
+}
+
+.side_navlinks li a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  font-size: 1.3em;
+  color: whitesmoke;
+}
+
+.side_navlinks a:hover {
+    opacity: 1;
+    color: white;
+}
+
+/*---- Sidebar-Toggler ----*/
+.sidebar_toggler {
+    position: fixed;
+    padding: 1.5rem;
+    top: 0vh;
+    left: 0vw;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #00000000;
+    z-index: 9999999999;
+}
+
+.sidebar_toggler span {
+    background-color:#000000eb;
+    width: 100%;
+    height: 2.4px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    /* so that it doesn't overlap the sidebar_toggler */
+}
+
+/* if the sidebar has 'show' class then their adjacent-sibling (i.e., sidebar_toggler) will... */
+#sidebar.show + .sidebar_toggler {
+    justify-content: center;
+}
+
+#sidebar.show + .sidebar_toggler span {
+    margin-top: -1.2px;
+    margin-bottom: -1.2px;
+}
+
+#sidebar.show + .sidebar_toggler span:first-child {
+    transform: rotate(45deg);
+}
+
+#sidebar.show + .sidebar_toggler span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+#sidebar.show + .sidebar_toggler span:last-child {
+    transform: rotate(-45deg);
+}
+
+.sidebar_foot{
+  margin-top: 9rem;
+}
+
+
+
+
+/* HOME */
+
+/* Titulo  home */
+
+.Titulo_pagina{
+    margin-left: 1rem;
+}
+
+/* Img Home */
+
+.img_home img{
+    width: 100%;
+    margin-top: 5rem;
+}
+
+/* queres donar */
+
+.queres_donars{
+    display: Flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #264470;
+
+    color: whitesmoke;
+
+    padding: 1rem;
+}
+
+.queres_donars img{
+    height: 10rem;
+}
+
+.queres_donars div{
+    margin-left: 2rem;
+    line-height: 2rem;
+}
+
+.queres_donars h2{
+    font-size:2.2em;
+    margin-bottom: .5rem;
+}
+
+/* INFORMACION */
+
+.Titulo_Seccion{
+    background-color: #03426b;
+    margin-top: 5rem;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size:1.4em;
+}
+
+/* infos */
+.infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1c5072;
+
+}
+
+.infos div{
+    padding: 1.5rem;
+}
+
+#linea_separadora{
+    height: .2rem;
+    background-color: #03426b;
+    padding: 0;
+    width: 80%;
+}
+
+.infos h3{
+    font-size: 2em;
+    color: whitesmoke;
+    margin-bottom: 1rem;
+}
+.infos  span{
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+/* TURNOS */
+
+.seccion_total{
+    display: flex;
+    background-color: #1c5072;
+
+}
+
+.infoPersonal{
+    background-color: #17405c;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid whitesmoke;
+
+}
+
+.botones_form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1c5072;
+
+}
+
+/* Botones */
+.botoness{
+    display: flex;
+    width: 460px;
+}
+
+.formPersonal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#textForm{
+    color: whitesmoke;
+    font-size: 2em;
+}
+
+.formPersonal span{
+    display: block;
+    margin-bottom:1rem;
+  }
+  
+  .formPersonal .labelsex{
+    padding: 6px 30px;
+    border-radius: .7rem;
+    border: 2px solid #1c5072;
+    width: 50%;
+    background-color: #2a5572;
+  }
+
+  .formPersonal .labelAnimal{
+    padding: 6px 30px;
+    border-radius: .7rem;
+    border: 2px solid #1c5072;
+    width: 50%;
+    background-color: #2a5572;
+  }
+  
+  .boxSexo:checked + label{
+    background: whitesmoke;
+    color: black;
+    border: 2px solid whitesmoke;
+  }
+  
+  .boxAnimal:checked + label{
+    background: whitesmoke;
+    color: black;
+    border: 2px solid whitesmoke;
+  }
+
+  .boxSexo{
+    display: none;
+  }
+  .boxAnimal{
+    display: none;
+  }
+
+
+/* form */
+
+.contact_form{	
+	width: 460px; 
+  height: auto;
+  margin: 80px auto;
+	border-radius: 10px;  
+	padding-top: 30px;
+	padding-bottom: 20px;  
+  background-color: #fbfbfb; 
+  padding-left: 30px; 
+  margin-top: 2rem;
+}
+
+
+input{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #585858; 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+}
+
+
+textarea{
+  background-color: #fbfbfb; 
+	width: 405px; 
+	height: 150px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #000000; 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+  padding-top: 15px; 
+}
+
+
+label{
+  display: block; 
+	float: center; 	
+}
+
+
+button{
+	height: 45px; 
+	padding-left: 5px;
+	padding-right: 5px; 	
+	margin-bottom: 20px; 
+	margin-top: 10px; 	
+	text-transform: uppercase;
+	background-color: #000000; 
+	border-color: #000000; 
+	border-style: solid; 
+	border-radius: 10px;	
+	width: 420px;   
+  cursor: pointer;
+}
+
+
+button p{
+	color: #fff; 
+}
+
+
+span{
+	color: #000000; 
+}
+
+
+.aviso{
+	font-size: 13px;  
+	color: #0e0e0e;  
+}
+
+
+.h1_form{
+	font-size: 39px;  
+	text-align: letf; 
+	padding-bottom: 20px; 
+	color: #ab4493;
+}
+
+
+h3{
+	font-size: 16px; 
+	padding-bottom: 30px;
+	color: #0e0e0e;   
+}
+
+
+p{
+	font-size: 14px; 
+	color: #0e0e0e; 
+}
+
+
+::-webkit-input-placeholder {
+ color: #a8a8a8;
+}
+
+
+::-webkit-textarea-placeholder {
+ color: #a8a8a8;
+}
+
+
+.formulario input:focus{
+	outline:0;
+	border: 1px solid #97d848;
+}
+
+
+.formulario textarea:focus{
+	outline:0;
+	border: 1px solid #97d848;
+}
+
+/* Fecha */
+
+.calendario{
+    background-color: #17405c;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid whitesmoke;
+    margin-bottom: 1rem;
+}
+
+.calendario p{
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+/* Checkbox */
+
+.checkbox {
+    --border-default: #bbbbc1;
+    --border-hover: #9898a3;
+    --active: #6E7BF2;
+    --active-tick: #ffffff;
+    display: block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    svg {
+        display: block;
+        position: absolute;
+    }
+    input {
+        display: block;
+        outline: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 36% / 36%;
+        box-shadow: inset 0 0 0 1.5px var(--border, var(--border-default));
+        background: var(--background, transparent);
+        transition: background .25s linear, box-shadow .25s linear;
+        & + svg {
+            width: 21px;
+            height: 18px;
+            left: 0;
+            top: 0;
+            color: var(--active);
+            .tick {
+                stroke-dasharray: 20;
+                stroke-dashoffset: var(--stroke-dashoffset, 20);
+                transition: stroke-dashoffset .2s;
+                &.mask { 
+                    stroke: var(--active-tick);
+                }
+            }
+            & + svg {
+                width: 11px;
+                height: 11px;
+                fill: none;
+                stroke: var(--active);
+                stroke-width: 1.25;
+                stroke-linecap: round;
+                top: -6px;
+                right: -10px;
+                stroke-dasharray: 4.5px;
+                stroke-dashoffset: 13.5px;
+                pointer-events: none;
+                animation: var(--animation, none) .2s ease .175s;
+            }
+        }
+        &:checked {
+            --background: var(--active);
+            --border: var(--active);
+            & + svg {
+                --stroke-dashoffset: 0;
+                & + svg {
+                    --animation: check;
+                }
+            }
+        }
+    }
+    &:hover {
+        input {
+            &:not(:checked) {
+                --border: var(--border-hover);
+            }
+        }
+    }
+}
+
+@keyframes check {
+    100% {
+        stroke-dashoffset: 4.5px;
+    }
+}
+
+/* CONTACTOS */
+
+.seccion_veterianrias{
+    background-color: #1c5072;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccion_veterianrias img{
+    height: 8rem;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+
+}
+
+.veterinaria{
+    display: flex;
+    padding: 2rem;
+    padding-right: 40rem;
+    background-color: #424242;
+    width: 95%;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 2px 5px rgb(0, 0, 0);
+}
+
+.veterinaria:hover{
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+
+}
+
+.info_vet{
+    margin-left: 4rem;
+}
+
+.info_vet div{
+    display: flex;
+    justify-content: center;
+}
+
+.info_vet img{
+    box-shadow: 0 0 0;
+    height: 1.5rem;
+    margin-right: 1rem;
+}
+
+.info_vet a{
+    margin-right: 2rem;
+}
+
+.info_vet h3{
+    font-size: 2em;
+    height: 80%;
+    color: whitesmoke;
+
+}
+
+.info_vet span{
+    font-size: 1.3em;
+    color: whitesmoke;
+
+}
+
+/* ADOPCION */
+
+.seccion_adoptar{
+    background-color: #17405c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.seccion_adoptar img{
+    height: 15rem;
+    border-radius: .4rem;
+}
+
+.seccion_adoptar div{
+    display: flex;
+    height: 100%;
+    width: 95%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    background-color: #224861;
+    border-radius: .8rem;
+    align-items: center;
+    box-shadow: 5px 2px 5px rgb(0, 0, 0);
+
+}
+
+#datos{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+#datos h3{
+    font-size: 3em;
+    color: whitesmoke;
+}
+
+#datos h4{
+    font-size: 1.5em;
+    color: whitesmoke;
+
+}
+
+#boton_adopcion{
+    padding: .5rem 1rem;
+    margin: 0;
+    background-color: #1b3a4e;
+    width: auto;
+    margin-top: 2rem;
+    border-radius: .2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2em;
+    color: whitesmoke;
+
+}
+
+#boton_adopcion:hover{
+    box-shadow: 10px 5px 5px rgb(0, 0, 0);
+
+}
